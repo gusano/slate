@@ -202,6 +202,9 @@ class Node extends React.Component {
     if (node.kind != 'block') return
     if (node.nodes.first().kind == 'block') return
 
+    // If this is BACKSPACE key, abort.
+    if (node.key == 6) return
+
     // If the selection is blurred, or this block doesn't contain it, abort.
     if (selection.isBlurred) return
     if (!selection.hasEndIn(node)) return
